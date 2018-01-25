@@ -11,7 +11,7 @@ var app = app || {};
 
   preferenceView.init = () => {
     $('#signup-link, #login-link, #pref-link').hide();
-    $('#home-link, #logout-link, .save-button').show();
+    $('#home-link, #logout-link, #pref-page, .save-button').show();
 
     app.Source.fetchAllSources().then(() => {
       app.Source.all.forEach((source) => {

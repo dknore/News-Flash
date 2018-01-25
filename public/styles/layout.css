@@ -34,5 +34,14 @@
 .name-list {
     width: 100%;
     padding-left: 0;
-    margin-right: 10em;
+}
+
+#pref-page {
+    height: -webkit-fill-available;
+    width: 100%;
+}
+
+.source {
+    margin-bottom: 0;
+    width: 20%;
 }
