@@ -13,7 +13,7 @@ var app = app || {};
   }
 
   function renderArticles() {
-    $('#home-link, #logout-link, #pref-link, #signup-modal').hide()
+    $('#home-link, #logout-link, #pref-link, #signup-modal, #pref-page').hide()
     $('#feedView-template, #login-link, #signup-link').show()
     $('#feedView-template').empty()
     app.Article.all.forEach((articleData, i) => {
