@@ -13,8 +13,8 @@ var app = app || {};
   }
 
   function renderArticles() {
-    $('#home-link, #logout-link, #pref-link').hide()
-    $('#feedView-template').show()
+    $('#home-link, #logout-link, #pref-link, #signup-modal').hide()
+    $('#feedView-template, #login-link, #signup-link').show()
     $('#feedView-template').empty()
     app.Article.all.forEach((articleData, i) => {
       articleData.id = i;
@@ -55,17 +55,14 @@ var app = app || {};
     }
   }
 
-
-
   // testing
-  $(window).scroll(function(){
-    if ($(window).scrollTop() == $(document).height()-$(window).height()){
-        app.Article.fetchAllArticles().then(() => {
-          renderArticles()
-        })
-    }
-});
-
+//   $(window).scroll(function(){
+//     if ($(window).scrollTop() == $(document).height()-$(window).height()){
+//         app.Article.fetchAllArticles().then(() => {
+//           renderArticles()
+//         })
+//     }
+// });
 
   module.newsListPage = newsListPage
 })(app)
