@@ -8,8 +8,8 @@ var app = app || {};
   $('.modalj').hide();
   
   signUpView.init = () => {
-    $('#home-link').show();
-    $('#signup-link, #login-link, #pref-link').hide();
+    $('#home-link, #signup-modal').show();
+    $('#login-link, #signup-link, #pref-link').hide();
     var loginList = localStorage.loginData;//starts as an empty array
     if (loginList === undefined || loginList === null) {
       loginList = [];

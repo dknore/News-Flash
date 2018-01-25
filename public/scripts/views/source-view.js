@@ -10,14 +10,14 @@ var app = app || {};
   const selectedList = [];
 
   preferenceView.init = () => {
-    $('#home-link, #logout-link').show();
     $('#signup-link, #login-link, #pref-link').hide();
+    $('#home-link, #logout-link, #pref-page, .save-button').show();
 
     app.Source.fetchAllSources().then(() => {
       app.Source.all.forEach((source) => {
         idList.push(source.id)
         nameList.push(source.name)
-        $('.name-list').append(`<input class="source" id=${source.id} type="checkbox">${source.name}</input>`);
+        $('.name-list').append(`<input class="source" id=${source.id} type="checkbox">${source.name}</input><br>`);
       });
       $('.name-list').show();
     });

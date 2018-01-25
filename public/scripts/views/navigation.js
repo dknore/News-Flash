@@ -4,7 +4,7 @@ var modal = document.getElementById('login-modal');
 var loginLink = document.getElementById("login-link");
 
 $(document).ready(function() {
-    $('#navbar-toggle').on('click', function() {
+    $('#navbar-toggle, .navbar-item').on('click', function() {
         $("#panel").slideToggle();
     });
 

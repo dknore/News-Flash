@@ -31,6 +31,7 @@ app.get('/articles', (request, result) => {
   if (articleSources.length == 0) {
     articleSources = langCountry;
   }
+  let page = 0;
   let pagination = `pageSize=${pageSize}&page=${++page}`;
   let articlesUrl = (`${apiPrefix}/top-headlines?${articleSources}&${pagination}&${apiKey}`);
   superagent.get(articlesUrl)
