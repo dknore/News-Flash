@@ -9,6 +9,7 @@ var app = app || {};
   
   signUpView.init = () => {
     $('#home-link').show();
+    $('#signup-link, #login-link, #pref-link').hide();
     var loginList = localStorage.loginData;//starts as an empty array
     if (loginList === undefined || loginList === null) {
       loginList = [];
@@ -30,12 +31,12 @@ var app = app || {};
       let userPassword = document.getElementById('signup-password').value
       console.log(userEmail);
       console.log(userPassword);
+
       if (userEmail && userPassword !== "") {
         localStorage.setItem('EMAIL-KEY', JSON.stringify(userEmail));
         localStorage.setItem('PASSWORD-KEY', JSON.stringify(userPassword));
-        $('.feed-wrapper').fadeIn(700);
-        $('#signUp, #signup-link, #login-link').hide();
-        $('#logout-link, #pref-link').show();
+        $('#pref-link').show();
+        page('/preferences');
       } else {
         alert('All Fields must be filled out');
       };

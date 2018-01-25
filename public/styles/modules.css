@@ -60,12 +60,18 @@
 }
 
 input {
+   border: 1px solid #4a4a4a;
+   padding-left: .5em;
    width: 60%;
    height: 30px;
    margin-bottom: 10px;
 }
 
+#signUpBtn {
+    border: 1px solid #4a4a4a;
+}
 #loginBtn {
+    border: 1px solid #4a4a4a;
     height: 30px;
     width: 25%;
 }

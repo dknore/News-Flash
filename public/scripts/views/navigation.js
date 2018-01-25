@@ -5,19 +5,18 @@ var loginLink = document.getElementById("login-link");
 
 $(document).ready(function() {
     $('#navbar-toggle').on('click', function() {
-        $("#panel").stop().slideToggle();
+        $("#panel").slideToggle();
     });
 
     // hide the Login modal
     modal.style.display = "none";
 });
 
-// when user presses the 'Log Out' menu item
-$('#logout-link, .main-link').hide();
+//when user presses LOG OUT
 $('#logout-link').on('click', (event) => {
   event.preventDefault();
   localStorage.clear();
-  $('#pref-link, #logout-link').hide();
+  $('.pref-link, #logout-link').hide();
   $('#login-link, #signup-link').show();
 });
 
