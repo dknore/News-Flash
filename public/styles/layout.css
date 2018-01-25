@@ -30,3 +30,9 @@
     right: 0;
     width: 100%;
 }
+
+.name-list {
+    width: 100%;
+    padding-left: 0;
+    margin-right: 10em;
+}

@@ -6,7 +6,8 @@ page('/*', (ctx, next) => {
 });
 
 page('/', () => { 
-  page('/home');
+  // page.redirect('/home');
+  app.newsListPage.init();
   $('.save-button').hide();
 });
 
