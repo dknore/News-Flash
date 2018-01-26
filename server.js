@@ -1,3 +1,5 @@
+// apiKey = 4b625c1a78f6443d95b9ec1947f3ff62
+
 'use strict';
 
 const express = require('express');
@@ -15,7 +17,7 @@ const pageSize = 10;
 const PORT = process.env.PORT || 3000;
 
 
-// const conString = 'postgres://username:password@localhost:5432/newsflash';
+// const conString = 'postgres://ovidiuparasca:asdf1234@localhost:5432/newsflash';
 // const client = new pg.Client(conString);
 // client.connect();
 // client.on('error', err => {
@@ -31,9 +33,9 @@ app.get('/articles/:page/:sources?', (request, result, next) => {
   if (request.params.sources) {
     articleSources = `sources=${request.params.sources}`;
   }
-
   let pagination = `pageSize=${pageSize}&page=${request.params.page}`;
   let articlesUrl = (`${apiPrefix}/top-headlines?${articleSources}&${pagination}&${apiKey}`);
+  console.log(`page number: ${request.params.page}`)
   superagent.get(articlesUrl)
     .then(
       repos => {
@@ -63,3 +65,5 @@ app.get('/sources', (request, result) => {
 app.listen(PORT, () => {
   console.log(`listening on PORT:  ${PORT}`);
 });
+
+

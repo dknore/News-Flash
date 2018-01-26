@@ -4,14 +4,14 @@ var modal = document.getElementById('login-modal');
 var loginLink = document.getElementById("login-link");
 
 $(document).ready(function() {
-    $('#navbar-toggle, .navbar-item').on('click', function() {
+    // $('#navbar-toggle, .navbar-item').on('click', function() {
+    $('#navbar-toggle').on('click', function() {
         $("#panel").slideToggle();
     });
 
     // hide the Login modal
     modal.style.display = "none";
 });
-
 
 // when user presses the 'Log Out' menu item
 // $('#logout-link, #pref-link').hide();

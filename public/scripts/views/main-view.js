@@ -8,6 +8,12 @@ var app = app || {};
   const template = Handlebars.compile($('#feedView-template').html())
 
   newsListPage.init = () => {
+    $('#home-link, #logout-link, #pref-link, #signup-modal, #pref-page').hide()
+    // $('#feedView-template, #login-link, #signup-link').show()
+    // $('#feedView-template').empty()
+    //$('#home-link').hide()//, #logout-link, #pref-link, #signup-modal').hide()
+    $('#feedView-template, #login-link, #signup-link').show()
+
     $(this).scrollTop(0);
     page = 1;
     let sources = JSON.parse(localStorage.getItem('PREFS'));
@@ -21,9 +27,6 @@ var app = app || {};
   }
 
   function renderArticles() {
-    $('#home-link, #logout-link, #pref-link, #signup-modal, #pref-page').hide()
-    $('#feedView-template, #login-link, #signup-link').show()
-    $('#feedView-template').empty()
     app.Article.all.forEach((articleData, i) => {
       articleData.id = i;
       // format the time stamp
@@ -74,7 +77,8 @@ var app = app || {};
     }
   }
 
-  // Infinite Scrolling
+
+// Infinite Scrolling
   $(window).scroll(function(){
     if ($("#panel").is(":visible")) {
       $("#panel").hide();
