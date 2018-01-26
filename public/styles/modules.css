@@ -95,17 +95,16 @@ h1 {
     max-width: 100%;
 }
 
-.feed-wrapper .article-author {
+.feed-wrapper #title {
     background-color: #4a4a4a;
     margin-bottom: 0;
-    margin-top: .3em;
     padding: .5em .5em;
     color: #5aabfc;
     overflow-wrap: break-word;
 }
 
-.article-author {
-    font-size: 2em;
+#article-author {
+    padding: 0.5em 1.5em;
 }
 
 label {
@@ -125,7 +124,7 @@ label {
 #title {
     cursor: pointer;
     display: inline-block;
-    font-size: 1.2em;
+    font-size: 1.5em;
     font-weight: bold;
     padding-top: .3em;
     /* padding-left: 1.4em; */
@@ -145,8 +144,8 @@ a:visited {
 
 #description {
     padding-top: .7em;
-    padding-left: 1.6em;
-    font-size: 1em;
+    padding-left: 1.9em;
+    font-size: 0.8em;
 }
 
 #publishedOn {
@@ -155,10 +154,6 @@ a:visited {
     font-size: .8em;
 }
 
-.article-author-noshow {
-    margin-top: 1em;
-    display: none;
-}
 
 /* Mixed Media */
 @media only screen and (max-width: 600px) {
