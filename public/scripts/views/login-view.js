@@ -15,9 +15,8 @@ var modal = document.getElementById('login-modal');
       event.preventDefault();
       let userEmail = JSON.parse(localStorage.getItem('EMAIL-KEY'));
       let userPassword = JSON.parse(localStorage.getItem('PASSWORD-KEY'));
-      if ((document.getElementById('login-email').value === userEmail) && 
-        (document.getElementById('login-password').value === userPassword)) {
-        console.log('Login Success') 
+      
+      if ((document.getElementById('login-email').value === userEmail) && (document.getElementById('login-password').value === userPassword)) {
         $('#login-link, #signup-link, #pref-link').hide();
         $('#logout-link, #home-link, #pref-link').show();
       } else {

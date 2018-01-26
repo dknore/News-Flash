@@ -8,8 +8,8 @@ var app = app || {};
   const Article = {};
   Article.all = [];
 
-  Article.fetchAllArticles = () => {
-    return $.getJSON(API_URL).then(articleData => {
+  Article.fetchAllArticles = (page, sources) => {
+    return $.getJSON(`${API_URL}/${page}/${sources}`).then(articleData => {
       Article.all = articleData;
     }).catch(error => console.error(error));
   }
