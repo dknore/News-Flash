@@ -4,7 +4,8 @@ var modal = document.getElementById('login-modal');
 var loginLink = document.getElementById("login-link");
 
 $(document).ready(function() {
-    $('#navbar-toggle, .navbar-item').on('click', function() {
+    // $('#navbar-toggle, .navbar-item').on('click', function() {
+    $('#navbar-toggle').on('click', function() {
         $("#panel").slideToggle();
     });
 
@@ -12,7 +13,8 @@ $(document).ready(function() {
     modal.style.display = "none";
 });
 
-//when user presses LOG OUT
+// when user presses the 'Log Out' menu item
+// $('#logout-link, #pref-link').hide();
 $('#logout-link').on('click', (event) => {
   event.preventDefault();
   localStorage.clear();
@@ -30,8 +32,20 @@ function addCloseNavBar () {
     var navbarLinks = document.getElementsByClassName("navbar-item");
     for (var i = 0; i < navbarLinks.length; i++) {
         navbarLinks[i].addEventListener("click", function() {
-            $("#panel").stop().slideToggle();
+            $("#panel").slideToggle();
         }, false);
     }
 }
 addCloseNavBar();
+
+
+// check if user is logged in
+function isUserLoggedIn () {
+    let userEmail = JSON.parse(localStorage.getItem('EMAIL-KEY'));
+    let userPassword = JSON.parse(localStorage.getItem('PASSWORD-KEY'));
+    if (userEmail !== null && userPassword !== null) {
+        $('#login-link, #signup-link').hide();
+        $('#logout-link, #pref-link').show();
+    }
+}
+isUserLoggedIn();
