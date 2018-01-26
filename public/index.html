@@ -13,8 +13,8 @@
     <script id="feedView-template" type="text/x-handlebars-template">
         <div class="feed-wrapper" id="{{id}}">
             <div id="inner">
-                <div class="source-author">
-                    <a id="title" href="{{url}}">{{title}}</a></br>
+                <div class="source-author clearfix">
+                    <h2 class="article-author">{{author}}</h2>
                 </div>
 
                 <div class="feed-image">
@@ -22,7 +22,7 @@
                     <!-- <div class="image-description">test text on hover of image to prompt user to click for image website</div> -->
                 </div>
 
-                <label id="article-author">{{author}}{{source.name}}</label>
+                <a id="title" href="{{url}}">{{title}}</a></br>
                 <label id="description">{{description}}</label></br>
                 <label id="publishedOn">Published {{publishedAt}} ago</label>
             </div>
@@ -77,7 +77,7 @@
 
    <!-- Preferences Page -->
    <div id="pref-page">
-       <ul class="name-list"></ul>
+       <ul name="ovi" class="name-list"></ul>
        <input class="save-button" type="submit">
    </div>
 

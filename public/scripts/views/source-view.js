@@ -20,31 +20,17 @@ var app = app || {};
         $('.name-list').append(`<input class="source" id=${source.id} type="checkbox">${source.name}</input><br>`);
       });
       $('.name-list').show();
-    }).then(() => {
-      // compare the sources to the saved prefs
-      let sources = JSON.parse(localStorage.getItem('PREFS'));
-      if (sources !== null) {
-        var checkedList = document.getElementsByClassName('source');
-        for (var i = 0; i < checkedList.length; i++) {
-          if (sources.some(x => x == checkedList[i].id)) {
-            checkedList[i].checked = true;
-          }
-        }
-      }
     });
 
-    // save the current source prefs
     $('.save-button').on('click', () => {
-      $('#anchor').empty()
-      app.Article.all = [];
       var checkedList = document.getElementsByClassName('source');
       for (var i = 0; i < checkedList.length; i++) {
         if (checkedList[i].checked) {
           selectedList.push(checkedList[i].id);
         }
       }
-      localStorage.setItem('PREFS', JSON.stringify(selectedList));
 
+      console.log('we selected the following news outlets: ' + selectedList);
       $('.name-list, .save-button').fadeOut(500);
       page('/home');
     });

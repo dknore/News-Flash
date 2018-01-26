@@ -22,8 +22,6 @@
     "cors": "^2.8.4",
     "express": "^4.16.2",
     "fs": "0.0.1-security",
-    "localStorage": "^1.0.3",
-    "node-localstorage": "^1.3.0",
     "pg": "^7.4.1",
     "superagent": "^3.8.2"
   }

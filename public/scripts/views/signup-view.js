@@ -29,6 +29,8 @@ var app = app || {};
       event.preventDefault();
       let userEmail = document.getElementById('signup-email').value
       let userPassword = document.getElementById('signup-password').value
+      console.log(userEmail);
+      console.log(userPassword);
 
       if (userEmail && userPassword !== "") {
         localStorage.setItem('EMAIL-KEY', JSON.stringify(userEmail));
