@@ -10,8 +10,12 @@ var app = app || {};
   const selectedList = [];
 
   preferenceView.init = () => {
-    $('#signup-link, #login-link, #pref-link').hide();
-    $('#home-link, #logout-link, #pref-page, .save-button').show();
+    $('#pref-link').hide();
+    $('#pref-page, .save-button').show();
+
+    // TODO: delete these 2 lines
+    // $('#signup-link, #login-link, #pref-link').hide();
+    // $('#home-link, #logout-link, #pref-page, .save-button').show();
 
     app.Source.fetchAllSources().then(() => {
       app.Source.all.forEach((source) => {

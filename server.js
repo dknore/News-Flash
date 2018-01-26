@@ -35,7 +35,6 @@ app.get('/articles/:page/:sources?', (request, result, next) => {
   }
   let pagination = `pageSize=${pageSize}&page=${request.params.page}`;
   let articlesUrl = (`${apiPrefix}/top-headlines?${articleSources}&${pagination}&${apiKey}`);
-  console.log(`page number: ${request.params.page}`)
   superagent.get(articlesUrl)
     .then(
       repos => {

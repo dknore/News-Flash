@@ -16,10 +16,10 @@ $(document).ready(function() {
 // when user presses the 'Log Out' menu item
 // $('#logout-link, #pref-link').hide();
 $('#logout-link').on('click', (event) => {
-  event.preventDefault();
-  localStorage.clear();
-  $('.pref-link, #logout-link').hide();
-  $('#login-link, #signup-link').show();
+    event.preventDefault();
+    localStorage.clear();
+    $('.pref-link, #logout-link').hide();
+    $('#login-link, #signup-link').show();
 });
 
 
@@ -41,11 +41,16 @@ addCloseNavBar();
 
 // check if user is logged in
 function isUserLoggedIn () {
+    console.log(document.URL);
     let userEmail = JSON.parse(localStorage.getItem('EMAIL-KEY'));
+    console.log("is user logged in?: " + userEmail);
     let userPassword = JSON.parse(localStorage.getItem('PASSWORD-KEY'));
     if (userEmail !== null && userPassword !== null) {
         $('#login-link, #signup-link').hide();
         $('#logout-link, #pref-link').show();
+    } else {
+        console.log("user not logged in");
+        $('#login-link, #signup-link').show();
+        $('#logout-link, #pref-link').hide();
     }
 }
-isUserLoggedIn();

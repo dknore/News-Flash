@@ -4,15 +4,18 @@ var app = app || {};
 (module => {
 
   const newsListPage = {};
-  let page = 1;
+  let page = 0;
+  var loadingArticles = false;
   const template = Handlebars.compile($('#feedView-template').html())
 
   newsListPage.init = () => {
-    $('#home-link, #logout-link, #pref-link, #signup-modal, #pref-page').hide()
+    console.log("main-view init func");
+    $('#home-link').hide();
+    // $('#home-link, #logout-link, #pref-link, #signup-modal, #pref-page').hide()
     // $('#feedView-template, #login-link, #signup-link').show()
     // $('#feedView-template').empty()
     //$('#home-link').hide()//, #logout-link, #pref-link, #signup-modal').hide()
-    $('#feedView-template, #login-link, #signup-link').show()
+    // $('#feedView-template, #login-link, #signup-link').show()
 
     $(this).scrollTop(0);
     page = 1;
@@ -21,7 +24,6 @@ var app = app || {};
       sources = "";
     }
     app.Article.fetchAllArticles(page, sources).then(() => {
-      page++;
       renderArticles()
     })
   }
@@ -37,7 +39,7 @@ var app = app || {};
       if (articleData.author !== null) {
         articleData.author = `By ${articleData.author}`;
       }
-      if (articleData.author.indexOf("www.") >= 0) {
+      if (articleData.author && articleData.author.indexOf("www.") >= 0) {
         articleData.author = null;
       }
       // inject a comma between the author and news outlet
@@ -48,6 +50,9 @@ var app = app || {};
       let articleTemplate = template(articleData);
       $('#anchor').append(articleTemplate);
     })
+
+    loadingArticles = false;
+    page++;
   }
 
   // format the date into a human-readable format
@@ -79,20 +84,22 @@ var app = app || {};
 
 
 // Infinite Scrolling
-  $(window).scroll(function(){
+  $(window).scroll(function() {
     if ($("#panel").is(":visible")) {
       $("#panel").hide();
     }
 
-    if ($(window).scrollTop() == $(document).height()-$(window).height()){
+    if ($(window).scrollTop() == $(document).height()-$(window).height()) {
+      if (!loadingArticles) {
+        loadingArticles = true;
         let sources = JSON.parse(localStorage.getItem('PREFS'));
         if (sources === null) {
           sources = "";
         }
         app.Article.fetchAllArticles(page, sources).then(() => {
-          page++;
           renderArticles()
         })
+      }
     }
 });
 
