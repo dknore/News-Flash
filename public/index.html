@@ -22,16 +22,16 @@
                     <!-- <div class="image-description">test text on hover of image to prompt user to click for image website</div> -->
                 </div>
 
-                <label id="title">{{title}}</label></br>
+                <a id="title" href="{{url}}">{{title}}</a></br>
                 <label id="description">{{description}}</label></br>
-                <label id="publishedOn">Published {{publishedAt}}</label>
+                <label id="publishedOn">Published {{publishedAt}} ago</label>
             </div>
         </div>
     </script>
 </head>
 
 <body>
-    <div class="fixed">
+    <div class="fixed-navbar">
         <h1 id="app-title">News Flash</h1>
             <div id="navbar-toggle">
                 <div></div>
@@ -40,43 +40,46 @@
             </div>
             <div id="panel">
             <ul class="nav-links">
-                <li id="home-link"><a href="/home">Home</a></li>
-                <li id="login-link"><a href="/login">Login</a></li>
-                <li id="logout-link"><a href="/logout">Log-Out</a></li>
-                <li id="signup-link"><a href="/signup">Sign-Up</a></li>
-                <li id="main-link"><a href="/preferences">Preferences</a></li>
+                <li id="home-link" class="navbar-item"><a href="/home">Home</a></li>
+                <li id="login-link" class="navbar-item"><a href="/login">Login</a></li>
+                <li id="logout-link" class="navbar-item"><a href="/logout">Log Out</a></li>
+                <li id="signup-link" class="navbar-item"><a href="/signup">Sign Up</a></li>
+                <li id="pref-link" class="navbar-item"><a href="/preferences">Preferences</a></li>
             </ul>
         </div>
     </div>
 
 
-    <!-- Home Page -->
+    <!-- Home Feed Page -->
     <div id="anchor"></div>
 
 
     <!-- The Login Modal -->
-    <form id="myModal" class="modal">
-        <div class="login-modal-content">
-            <span class="close">&times;</span>
-            <input id="email2" type="text" name="email" placeholder="email"><br>
-            <input id="password2" type="password" name="password" placeholder="password"><br>
-            <button id="loginBtn">Login</button>
-        </div>
-    </form>
-
-    <!--Sign Up Page-->
-    <form id="signUpForm">
-        <div id="signUp" class="modalj">
-            <div class="login-modal-content">
-                <input id="email" type="text" name="email" placeholder="email"><br>
-                <input id="password" type="password" name="password" placeholder="password"><br>
-                <button id="signUpBtn">SignUp</button>
+    <form id="login-modal" class="modal">
+        <div id="login-modal-outerArea">
+            <div id="login-modal-content">
+                <span class="close">&times;</span>
+                <input id="login-email" type="text" name="email" placeholder="email"><br>
+                <input id="login-password" type="password" name="password" placeholder="password"><br>
+                <button id="loginBtn">Login</button>
             </div>
         </div>
     </form>
 
+    <!-- Sign Up Page -->
+    <form id="signup-modal">
+        <div id="signUp" class="modalj">
+            <input id="signup-email" type="text" name="email" placeholder="email"><br>
+            <input id="signup-password" type="password" name="password" placeholder="password"><br>
+            <button id="signUpBtn">SignUp</button>
+        </div>
+    </form>
+
    <!-- Preferences Page -->
-   <div id="pref-page"></div>
+   <div id="pref-page">
+       <ul name="ovi" class="name-list"></ul>
+       <input class="save-button" type="submit">
+   </div>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

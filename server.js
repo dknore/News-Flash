@@ -10,6 +10,12 @@ const superagent = require('superagent');
 
 const app = express();
 const cors = require('cors');
+const apiPrefix = 'https://newsapi.org/v2';
+const apiKey = 'apiKey=181f3d6ba91f430b93b559021ceb725b';
+const langCountry = 'language=en&country=us';
+let articleSources = '';
+let page = 0;
+const pageSize = 10;
 const PORT = process.env.PORT || 3000;
 // const conString = 'postgres://postgres:postgres@localhost:5432/booklist';
 // const conString = 'postgress://localhost:5432';
@@ -22,8 +28,13 @@ app.use(express.static('./public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/articles', (request, result) => {
-  let url = ('https://newsapi.org/v2/top-headlines?sources=cnn,abc-news,fox-news&apiKey=181f3d6ba91f430b93b559021ceb725b');
-  superagent.get(url)
+  if (articleSources.length == 0) {
+    articleSources = langCountry;
+  }
+  let page = 0;
+  let pagination = `pageSize=${pageSize}&page=${++page}`;
+  let articlesUrl = (`${apiPrefix}/top-headlines?${articleSources}&${pagination}&${apiKey}`);
+  superagent.get(articlesUrl)
     .then(
       // repos => result.send(JSON.parse(repos.text).sources),
       repos => {
@@ -34,23 +45,27 @@ app.get('/articles', (request, result) => {
       err => result.send(err)
     ).catch(error => console.error(error));
 });
-
+  
 app.get('/sources', (request, result) => {
-  let url = ('https://newsapi.org/v2/sources?language=en&apiKey=181f3d6ba91f430b93b559021ceb725b');
-  superagent.get(url)
-    .then(
-      // repos => result.send(JSON.parse(repos.text).sources),
-      repos => {
-        let data = JSON.parse(repos.text).sources;
-        // console.log('data', data[0]);
-        result.send(data);
-        console.log('data', data);
-      },
+  let sourcesUrl = (`${apiPrefix}/sources?${langCountry}&${apiKey}`);
+  superagent.get(sourcesUrl)
+  .then(
+    // repos => result.send(JSON.parse(repos.text).sources),
+    repos => {
+      let data = JSON.parse(repos.text).sources;
+      // console.log('data', data[0]);
+      result.send(data);
+      console.log('data', data);
+    },
       err => result.send(err)
     ).catch(error => console.error(error));
+  });
+  
+  app.get('/hidden-api-key', (request, response) => {
+  response.send(api);
 });
 
 
 app.listen(PORT, () => {
   console.log(`listening on PORT:  ${PORT}`);
-})
+});

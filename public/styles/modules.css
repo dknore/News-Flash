@@ -1,49 +1,4 @@
 
-/* .image-description {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(29, 106, 154, 0.72);
-    color: #fff;
-    visibility: hidden;
-    opacity: 0;
-};
-
-#articleImage:hover .image-description{
-    visibility: visible;
-    opacity: 1;
-}; */
-
-h1 {
-    padding-left: 1em;
-    float: left;
-    margin: 0;
-}
-
-.feed-wrapper .feed-image {
-    text-align: center;
-}
-.feed-wrapper img {
-    margin: 0 auto;
-    max-width: 100%;
-    max-height: 500px;
-}
-.feed-wrapper .article-author {
-    background-color: #4a4a4a;
-    margin-bottom: 0;
-    margin-top: .3em;
-    padding: 1em .5em;
-    color: #5aabfc;
-}
-
-label {
-    display: -webkit-box;
-    padding-left: 1em;
-    margin: 0;
-}
-
 /* Sign-Up page */
 #signUp {
     background-color: white;
@@ -69,8 +24,18 @@ label {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+#login-modal-outerArea {
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
 /* Modal Content */
-.login-modal-content {
+#login-modal-content {
     background-color: #fefefe;
     margin: auto;
     padding: 2em;
@@ -95,14 +60,27 @@ label {
 }
 
 input {
+   border: 1px solid #4a4a4a;
+   padding-left: .5em;
    width: 60%;
    height: 30px;
+   margin-right: 7em;
    margin-bottom: 10px;
 }
 
+#signUpBtn {
+    border: 1px solid #4a4a4a;
+}
 #loginBtn {
+    border: 1px solid #4a4a4a;
     height: 30px;
     width: 25%;
+}
+
+h1 {
+    padding-left: 1em;
+    float: left;
+    margin: 0;
 }
 
 /*  News Feed  */
@@ -110,9 +88,20 @@ input {
     text-align: center;
 }
 .feed-wrapper img {
+    cursor: pointer;
     margin: 0 auto;
     max-height: 500px;
     width: 100%;
+    max-width: 100%;
+}
+
+.feed-wrapper .article-author {
+    background-color: #4a4a4a;
+    margin-bottom: 0;
+    margin-top: .3em;
+    padding: .5em .5em;
+    color: #5aabfc;
+    overflow-wrap: break-word;
 }
 
 .article-author {
@@ -126,6 +115,7 @@ label {
     margin: 0;
 }
 
+
 #inner {
     margin: .5em 0;
     /* background-color: */
@@ -133,10 +123,24 @@ label {
 
 /*  Articles  */
 #title {
+    cursor: pointer;
+    display: inline-block;
     font-size: 1.2em;
     font-weight: bold;
     padding-top: .3em;
-    margin-left: 0;
+    /* padding-left: 1.4em; */
+    padding: 0 1.4em;
+    -webkit-box-decoration-break: clone;
+}
+
+a:link {
+    color: #ffffff;
+}
+a:hover {
+    color: #d6d6d6;
+}
+a:visited {
+    color: #5aabfc;
 }
 
 #description {

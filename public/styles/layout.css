@@ -1,31 +1,47 @@
 #panel {
+    display: none;
     background-color: #bfbfbf;
     border:solid 1px #c3c3c3;
     width: 100%;
     overflow:hidden;
-  }
-  
-  #navbar-toggle {
+}
+
+#navbar-toggle {
     background-color: #484848;
     margin: 1em;
     cursor: pointer;
     float: right;
-  }
-  
-  #navbar-toggle div {
-      width: 3.5em;
-      height: .5em;
-      background-color: #bfbfbf;
-      margin: .6em 0;
-      border: 1px solid transparent;
-      border-radius: .02em;
-  }
-      
-  .fixed {
-      background-color: #484848;
-      padding-bottom: 0;
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 100%;
-  }
+}
+
+#navbar-toggle div {
+    width: 3.5em;
+    height: .5em;
+    background-color: #bfbfbf;
+    margin: .6em 0;
+    border: 1px solid transparent;
+    border-radius: .02em;
+}
+
+.fixed-navbar {
+    background-color: #484848;
+    padding-bottom: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+
+.name-list {
+    width: 100%;
+    padding-left: 0;
+}
+
+#pref-page {
+    height: -webkit-fill-available;
+    width: 100%;
+}
+
+.source {
+    margin-bottom: 0;
+    width: 20%;
+}
