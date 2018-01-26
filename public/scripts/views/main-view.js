@@ -4,18 +4,13 @@ var app = app || {};
 (module => {
 
   const newsListPage = {};
-  let page = 0;
+  let page = 1;
   var loadingArticles = false;
   const template = Handlebars.compile($('#feedView-template').html())
 
   newsListPage.init = () => {
-    console.log("main-view init func");
-    $('#home-link').hide();
-    // $('#home-link, #logout-link, #pref-link, #signup-modal, #pref-page').hide()
-    // $('#feedView-template, #login-link, #signup-link').show()
-    // $('#feedView-template').empty()
-    //$('#home-link').hide()//, #logout-link, #pref-link, #signup-modal').hide()
-    // $('#feedView-template, #login-link, #signup-link').show()
+    $('#home-page').show();
+    $('#home-link, #pref-page, #panel').hide();
 
     $(this).scrollTop(0);
     page = 1;
@@ -35,20 +30,34 @@ var app = app || {};
       var date = new Date(articleData.publishedAt);
       articleData.publishedAt = timeSince(date);
 
-      // remove websites are author names
-      if (articleData.author !== null) {
+      if (articleData.author && articleData.author.indexOf("By ") === -1) {
+        // add the 'By ' prefix to the author
         articleData.author = `By ${articleData.author}`;
       }
       if (articleData.author && articleData.author.indexOf("www.") >= 0) {
+        // if the title is a url instead of text
         articleData.author = null;
       }
       // inject a comma between the author and news outlet
-      if (articleData.author != null) {
+      if (articleData.author && articleData.source.name) {
         articleData.source.name = `, ${articleData.source.name}`;
       }
 
-      let articleTemplate = template(articleData);
-      $('#anchor').append(articleTemplate);
+      // look for Duplicate articles, the News Api is not perfect :'(
+      var domElements = document.body.getElementsByTagName('*');
+      var foundDup = false;
+      for (var i = 0; i < domElements.length; i++) {
+        if (domElements[i].id === "title") {
+          if (domElements[i].innerHTML === articleData.title) {
+            foundDup = true;
+          }
+        }
+      }
+
+      if (!foundDup) {
+        let articleTemplate = template(articleData);
+        $('#anchor').append(articleTemplate);
+      }
     })
 
     loadingArticles = false;

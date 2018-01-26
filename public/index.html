@@ -14,11 +14,11 @@
         <div class="feed-wrapper" id="{{id}}">
             <div id="inner">
                 <div class="source-author">
-                    <a id="title" href="{{url}}">{{title}}</a></br>
+                    <a id="title" href="{{url}}" target="_blank">{{{title}}}</a></br>
                 </div>
 
                 <div class="feed-image">
-                    <img id="articleImage" src="{{urlToImage}}" onclick="location.href='{{url}}'">
+                    <img id="articleImage" src="{{urlToImage}}" alt="{{url}}" onclick="window.open('{{url}}')">
                     <!-- <div class="image-description">test text on hover of image to prompt user to click for image website</div> -->
                 </div>
 
@@ -42,16 +42,18 @@
             <ul class="nav-links">
                 <li id="home-link" class="navbar-item"><a href="/home">Home</a></li>
                 <li id="login-link" class="navbar-item"><a href="/login">Login</a></li>
-                <li id="logout-link" class="navbar-item"><a href="/logout">Log Out</a></li>
                 <li id="signup-link" class="navbar-item"><a href="/signup">Sign Up</a></li>
                 <li id="pref-link" class="navbar-item"><a href="/preferences">Preferences</a></li>
+                <li id="logout-link" class="navbar-item"><a href="/logout">Log Out</a></li>
             </ul>
         </div>
     </div>
 
 
     <!-- Home Feed Page -->
-    <div id="anchor"></div>
+    <div id="home-page">
+        <div id="anchor"></div>
+    </div>
 
 
     <!-- The Login Modal -->
@@ -60,7 +62,7 @@
             <div id="login-modal-content">
                 <span class="close">&times;</span>
                 <input id="login-email" type="text" name="email" placeholder="email"><br>
-                <input id="login-password" type="password" name="password" placeholder="password"><br>
+                <input id="login-password" type="password" name="password" placeholder="password" autocomplete="off"><br>
                 <button id="loginBtn">Login</button>
             </div>
         </div>
@@ -70,7 +72,7 @@
     <form id="signup-modal">
         <div id="signUp" class="modalj">
             <input id="signup-email" type="text" name="email" placeholder="email"><br>
-            <input id="signup-password" type="password" name="password" placeholder="password"><br>
+            <input id="signup-password" type="password" name="password" placeholder="password" autocomplete="off"><br>
             <button id="signUpBtn">SignUp</button>
         </div>
     </form>

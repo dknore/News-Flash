@@ -1,5 +1,3 @@
-// apiKey = 4b625c1a78f6443d95b9ec1947f3ff62
-
 'use strict';
 
 const express = require('express');
@@ -17,13 +15,6 @@ const pageSize = 10;
 const PORT = process.env.PORT || 3000;
 
 
-// const conString = 'postgres://ovidiuparasca:asdf1234@localhost:5432/newsflash';
-// const client = new pg.Client(conString);
-// client.connect();
-// client.on('error', err => {
-//   console.error(err);
-// });
-
 app.use(cors());
 app.use(express.static('./public')); 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -35,6 +26,7 @@ app.get('/articles/:page/:sources?', (request, result, next) => {
   }
   let pagination = `pageSize=${pageSize}&page=${request.params.page}`;
   let articlesUrl = (`${apiPrefix}/top-headlines?${articleSources}&${pagination}&${apiKey}`);
+  console.log(articlesUrl);
   superagent.get(articlesUrl)
     .then(
       repos => {

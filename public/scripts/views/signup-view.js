@@ -9,21 +9,13 @@ var app = app || {};
   
   signUpView.init = () => {
     $('#home-link, #signup-modal').show();
-    $('#login-link, #signup-link, #pref-link').hide();
+    $('#panel, #login-link, #signup-link, #pref-link').hide();
     var loginList = localStorage.loginData;//starts as an empty array
     if (loginList === undefined || loginList === null) {
       loginList = [];
     } else {
       loginList = JSON.parse(loginList);
     };
-
-    // $('#signup-link').on('click', (event) => {
-    //   event.preventDefault();
-    //   $('#signUp').show();
-    //   $('#inner').hide();
-    //   localStorage.clear();
-    // });
-    //DONT NEED BECAUSE IT"S IN routes.js
 
     $('#signUpBtn').on('click', (event) => {
       event.preventDefault();

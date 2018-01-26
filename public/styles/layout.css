@@ -3,7 +3,7 @@
     background-color: #bfbfbf;
     border:solid 1px #c3c3c3;
     width: 100%;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 #navbar-toggle {
@@ -29,9 +29,14 @@
     top: 0;
     right: 0;
     width: 100%;
+    box-shadow: 0 1px 0 rgba(12,13,14,0.1), 
+    0 1px 3px rgba(12,13,14,0.1), 
+    0 4px 20px rgba(12,13,14,0.035), 
+    0 1px 1px rgba(12,13,14,0.025);
 }
 
 .name-list {
+    margin-top: 8em;
     width: 100%;
     padding-left: 0;
 }
@@ -44,4 +49,8 @@
 .source {
     margin-bottom: 0;
     width: 20%;
+}
+
+.source-author {
+    background-color: #4a4a4a;
 }

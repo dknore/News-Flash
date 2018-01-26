@@ -30,6 +30,7 @@ page('/signup', () => {
 page('/preferences', () => {
   isUserLoggedIn();
   app.preferenceView.init();
+  $('.save-button').show();
   $('.feed-wrapper, #signUp').hide();
 });
 

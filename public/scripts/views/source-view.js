@@ -10,8 +10,8 @@ var app = app || {};
   const selectedList = [];
 
   preferenceView.init = () => {
-    $('#pref-link').hide();
-    $('#pref-page, .save-button').show();
+    $('#home-page, #pref-link, #panel').hide();
+    $('#home-link, #pref-page, .save-button').show();
 
     // TODO: delete these 2 lines
     // $('#signup-link, #login-link, #pref-link').hide();

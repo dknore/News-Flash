@@ -4,6 +4,7 @@
 
 body {
     background-color: #e0e0e3;
+    max-width: 100%;
 }
 
 .clearfix:after {
