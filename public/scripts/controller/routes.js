@@ -7,7 +7,7 @@ page('/*', (ctx, next) => {
 
 page('/', () => { 
   page.redirect('/home');
-  $('.save-button').hide();
+  $('#prefButton').hide();
 });
 
 page('/home', () => { 
@@ -31,7 +31,7 @@ page('/signup', () => {
 page('/preferences', () => {
   isUserLoggedIn();
   app.preferenceView.init();
-  $('.save-button').show();
+  $('#prefButton').show();
   $('.feed-wrapper, #signUp').hide();
 });
 

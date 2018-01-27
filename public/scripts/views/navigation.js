@@ -26,6 +26,10 @@ $('#logout-link').on('click', (event) => {
 });
 
 
+$('#pref-link').on('click', (event) => {
+    $('#prefButton').show();
+});
+
 loginLink.onclick = function () {
   modal.style.display = "flex";
 }

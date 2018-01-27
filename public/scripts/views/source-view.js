@@ -11,7 +11,7 @@ var app = app || {};
 
   preferenceView.init = () => {
     $('#home-page, #pref-link, #panel').hide();
-    $('#home-link, #pref-page, .save-button').show();
+    $('#home-link, #pref-page, #prefButton').show();
     selectedList = [];
     $('.left-col, .right-col').empty();
 
@@ -48,7 +48,7 @@ var app = app || {};
     });
 
     // save the current source prefs
-    $('.save-button').on('click', () => {
+    $('#prefButton').on('click', () => {
       $('#anchor').empty()
       app.Article.all = [];
       var checkedList = document.getElementsByClassName('source');
@@ -59,7 +59,7 @@ var app = app || {};
       }
       localStorage.setItem('PREFS', JSON.stringify(selectedList));
 
-      $('.name-list, .save-button').fadeOut(500);
+      $('.name-list, #prefButton').fadeOut(500);
       page('/home');
     });
   };
