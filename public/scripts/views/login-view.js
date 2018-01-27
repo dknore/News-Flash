@@ -3,7 +3,6 @@
 var app = app || {};
 
 var closeBtn = document.getElementsByClassName("close")[0];
-var loginBtn = document.getElementById("loginBtn");
 var modal = document.getElementById('login-modal');
 
 (module => {
@@ -12,6 +11,7 @@ var modal = document.getElementById('login-modal');
 
   loginView.init = () => {
     $('#panel').hide();
+    $('#loginBtn').show();
     $('#loginBtn').on('click', (event) => {
       event.preventDefault();
       let userEmail = JSON.parse(localStorage.getItem('EMAIL-KEY'));
@@ -25,7 +25,7 @@ var modal = document.getElementById('login-modal');
     });
   };
 
-  loginBtn.onclick = function () {
+  $('#loginBtn').onclick = function () {
     modal.style.display = "none";
   }
 

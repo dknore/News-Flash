@@ -59,22 +59,13 @@
     cursor: pointer;
 }
 
-input {
+.form-input {
    border: 1px solid #4a4a4a;
    padding-left: .5em;
-   width: 60%;
+   width: 100%;
    height: 30px;
    margin-right: 7em;
    margin-bottom: 10px;
-}
-
-#signUpBtn {
-    border: 1px solid #4a4a4a;
-}
-#loginBtn {
-    border: 1px solid #4a4a4a;
-    height: 30px;
-    width: 25%;
 }
 
 h1 {
@@ -165,6 +156,15 @@ a:visited {
         max-width: 80%;
         margin: 0 auto;
         margin-bottom: .5em;
+    }
+
+    /* Modal Content */
+    #login-modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 2em;
+        border: 1px solid #808080;
+        width: 50%;
     }
  }
  

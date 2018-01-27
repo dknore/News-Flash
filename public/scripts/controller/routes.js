@@ -12,6 +12,7 @@ page('/', () => {
 
 page('/home', () => { 
   app.newsListPage.init();
+  $('.feed-wrapper').show();
   isUserLoggedIn();
 });
 

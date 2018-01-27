@@ -43,6 +43,12 @@ var app = app || {};
         articleData.source.name = `, ${articleData.source.name}`;
       }
 
+      if (articleData.urlToImage) {
+        if (articleData.urlToImage.indexOf("https://") === -1 && articleData.urlToImage.indexOf("www.") >= 0) {
+         articleData.urlToImage = articleData.urlToImage.replace("http://", "https://");
+        }
+      }
+
       // look for Duplicate articles, the News Api is not perfect :'(
       var domElements = document.body.getElementsByTagName('*');
       var foundDup = false;

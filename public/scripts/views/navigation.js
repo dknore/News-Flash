@@ -12,12 +12,17 @@ $(document).ready(function() {
     modal.style.display = "none";
 });
 
+
 // when user presses the 'Log Out' menu item
 $('#logout-link').on('click', (event) => {
     event.preventDefault();
     localStorage.clear();
     $('.pref-link, #logout-link').hide();
     $('#login-link, #signup-link').show();
+
+    $('#anchor').empty()
+    app.Article.all = [];
+    page('/home');
 });
 
 

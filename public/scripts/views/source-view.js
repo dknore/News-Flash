@@ -7,23 +7,33 @@ var app = app || {};
   const preferenceView = {};
   const idList = [];
   const nameList = [];
-  const selectedList = [];
+  let selectedList = [];
 
   preferenceView.init = () => {
     $('#home-page, #pref-link, #panel').hide();
     $('#home-link, #pref-page, .save-button').show();
-
-    // TODO: delete these 2 lines
-    // $('#signup-link, #login-link, #pref-link').hide();
-    // $('#home-link, #logout-link, #pref-page, .save-button').show();
+    selectedList = [];
+    $('.left-col, .right-col').empty();
 
     app.Source.fetchAllSources().then(() => {
-      app.Source.all.forEach((source) => {
+      app.Source.all.forEach((source, i) => {
         idList.push(source.id)
         nameList.push(source.name)
-        $('.name-list').append(`<input class="source" id=${source.id} type="checkbox">${source.name}</input><br>`);
+
+        if (i % 2 == 0) {
+          $('.left-col').append(`<label class="container">${source.name}
+          <input class="source" id=${source.id} type="checkbox">
+          <span class="checkmark"></span></label>`);
+          // $('.left-col').append(`<input class="source" id=${source.id} type="checkbox">${source.name}</input><br>`);
+        } else {
+          $('.right-col').append(`<label class="container">${source.name}
+          <input class="source" id=${source.id} type="checkbox">
+          <span class="checkmark"></span></label>`);
+          // $('.right-col').append(`<label>${source.name}<input class="source" id=${source.id} type="checkbox">`);
+          // $('.right-col').append(`<input class="source" id=${source.id} type="checkbox">${source.name}</input><br>`);
+        }
       });
-      $('.name-list').show();
+      // $('.name-list').show();
     }).then(() => {
       // compare the sources to the saved prefs
       let sources = JSON.parse(localStorage.getItem('PREFS'));
@@ -53,10 +63,6 @@ var app = app || {};
       page('/home');
     });
   };
-
-
-
-
 
   module.preferenceView = preferenceView;
 })(app);

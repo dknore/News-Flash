@@ -61,9 +61,9 @@
         <div id="login-modal-outerArea">
             <div id="login-modal-content">
                 <span class="close">&times;</span>
-                <input id="login-email" type="text" name="email" placeholder="email"><br>
-                <input id="login-password" type="password" name="password" placeholder="password" autocomplete="off"><br>
-                <button id="loginBtn">Login</button>
+                <input class="form-input" id="login-email" type="text" name="email" placeholder="email"><br>
+                <input class="form-input" id="login-password" type="password" name="password" placeholder="password" autocomplete="off"><br>
+                <input class="save-button" id="loginBtn" type="button" value="Login">
             </div>
         </div>
     </form>
@@ -71,16 +71,17 @@
     <!-- Sign Up Page -->
     <form id="signup-modal">
         <div id="signUp" class="modalj">
-            <input id="signup-email" type="text" name="email" placeholder="email"><br>
-            <input id="signup-password" type="password" name="password" placeholder="password" autocomplete="off"><br>
-            <button id="signUpBtn">SignUp</button>
+            <input class="form-input" id="signup-email" type="text" name="email" placeholder="email"><br>
+            <input class="form-input" id="signup-password" type="password" name="password" placeholder="password" autocomplete="off"><br>
+            <input class="save-button" id="signUpBtn" type="button" value="Sign Up">
         </div>
     </form>
 
    <!-- Preferences Page -->
    <div id="pref-page">
-       <ul class="name-list"></ul>
-       <input class="save-button" type="submit">
+        <div class="left-col"></div>
+        <div class="right-col"></div>
+       <input class="save-button" type="button" value="Save Sources">
    </div>
 
 
