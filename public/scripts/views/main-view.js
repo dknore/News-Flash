@@ -30,7 +30,7 @@ var app = app || {};
       var date = new Date(articleData.publishedAt);
       articleData.publishedAt = timeSince(date);
 
-      if (articleData.author && articleData.author.indexOf("By ") === -1) {
+      if (articleData.author && articleData.author.indexOf("By ") === -1 && articleData.author != articleData.title) {
         // add the 'By ' prefix to the author
         articleData.author = `By ${articleData.author}`;
       }
