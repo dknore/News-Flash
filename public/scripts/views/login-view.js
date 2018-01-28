@@ -3,7 +3,6 @@
 var app = app || {};
 
 var closeBtn = document.getElementsByClassName("close")[0];
-var loginBtn = document.getElementById("loginBtn");
 var modal = document.getElementById('login-modal');
 
 (module => {
@@ -11,24 +10,22 @@ var modal = document.getElementById('login-modal');
   const loginView = {};
 
   loginView.init = () => {
+    $('#panel').hide();
+    $('#loginBtn').show();
     $('#loginBtn').on('click', (event) => {
       event.preventDefault();
       let userEmail = JSON.parse(localStorage.getItem('EMAIL-KEY'));
       let userPassword = JSON.parse(localStorage.getItem('PASSWORD-KEY'));
-      // if ((document.getElementById('login-email').value === userEmail) && 
-      //   (document.getElementById('login-password').value === userPassword)) {
-      //   console.log('Login Success') 
-      //   $('#login-link, #signup-link, #pref-link').hide();
       if ((document.getElementById('login-email').value === userEmail) && (document.getElementById('login-password').value === userPassword)) {
         $('#login-link, #signup-link').hide();
-        $('#logout-link, #home-link, #pref-link').show();
+        $('#home-link, #pref-link, #logout-link').show();
       } else {
         alert('Username or password is incorrect.')
       }
     });
   };
 
-  loginBtn.onclick = function () {
+  $('#loginBtn').onclick = function () {
     modal.style.display = "none";
   }
 

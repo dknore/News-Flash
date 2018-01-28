@@ -59,22 +59,13 @@
     cursor: pointer;
 }
 
-input {
+.form-input {
    border: 1px solid #4a4a4a;
    padding-left: .5em;
-   width: 60%;
+   width: 100%;
    height: 30px;
    margin-right: 7em;
    margin-bottom: 10px;
-}
-
-#signUpBtn {
-    border: 1px solid #4a4a4a;
-}
-#loginBtn {
-    border: 1px solid #4a4a4a;
-    height: 30px;
-    width: 25%;
 }
 
 h1 {
@@ -96,9 +87,8 @@ h1 {
 }
 
 .feed-wrapper #title {
-    background-color: #4a4a4a;
     margin-bottom: 0;
-    padding: .5em .5em;
+    padding: .8em .5em;
     color: #5aabfc;
     overflow-wrap: break-word;
     max-width: 100%;
@@ -116,11 +106,6 @@ label {
 }
 
 
-#inner {
-    margin: .5em 0;
-    /* background-color: */
-}
-
 /*  Articles  */
 #title {
     cursor: pointer;
@@ -128,7 +113,6 @@ label {
     font-size: 1.5em;
     font-weight: bold;
     padding-top: .3em;
-    /* padding-left: 1.4em; */
     padding: 0 1.4em;
     -webkit-box-decoration-break: clone;
 }
@@ -160,18 +144,27 @@ a:visited {
 @media only screen and (max-width: 600px) {
     .feed-wrapper {
         background-color: rgba(128, 128, 128, .8);
-        margin-bottom: .5em;
         max-width: 100%;
         margin: 0 auto;
+        margin-bottom: .5em;
     }
  }
  
  @media only screen and (min-width: 600px) {
     .feed-wrapper {
         background-color: rgba(128, 128, 128, .8);
-        margin-bottom: .5em;
         max-width: 80%;
         margin: 0 auto;
+        margin-bottom: .5em;
+    }
+
+    /* Modal Content */
+    #login-modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 2em;
+        border: 1px solid #808080;
+        width: 50%;
     }
  }
  
@@ -181,6 +174,7 @@ a:visited {
         margin-bottom: .5em;
         max-width: 50%;
         margin: 0 auto;
+        margin-bottom: .5em;
     }
  }
 

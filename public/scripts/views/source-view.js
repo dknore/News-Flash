@@ -7,19 +7,33 @@ var app = app || {};
   const preferenceView = {};
   const idList = [];
   const nameList = [];
-  const selectedList = [];
+  let selectedList = [];
 
   preferenceView.init = () => {
-    $('#signup-link, #login-link, #pref-link').hide();
-    $('#home-link, #logout-link, #pref-page, .save-button').show();
+    $('#home-page, #pref-link, #panel').hide();
+    $('#home-link, #pref-page, #prefButton').show();
+    selectedList = [];
+    $('.left-col, .right-col').empty();
 
     app.Source.fetchAllSources().then(() => {
-      app.Source.all.forEach((source) => {
+      app.Source.all.forEach((source, i) => {
         idList.push(source.id)
         nameList.push(source.name)
-        $('.name-list').append(`<input class="source" id=${source.id} type="checkbox">${source.name}</input><br>`);
+
+        if (i % 2 == 0) {
+          $('.left-col').append(`<label class="container">${source.name}
+          <input class="source" id=${source.id} type="checkbox">
+          <span class="checkmark"></span></label>`);
+          // $('.left-col').append(`<input class="source" id=${source.id} type="checkbox">${source.name}</input><br>`);
+        } else {
+          $('.right-col').append(`<label class="container">${source.name}
+          <input class="source" id=${source.id} type="checkbox">
+          <span class="checkmark"></span></label>`);
+          // $('.right-col').append(`<label>${source.name}<input class="source" id=${source.id} type="checkbox">`);
+          // $('.right-col').append(`<input class="source" id=${source.id} type="checkbox">${source.name}</input><br>`);
+        }
       });
-      $('.name-list').show();
+      // $('.name-list').show();
     }).then(() => {
       // compare the sources to the saved prefs
       let sources = JSON.parse(localStorage.getItem('PREFS'));
@@ -34,7 +48,7 @@ var app = app || {};
     });
 
     // save the current source prefs
-    $('.save-button').on('click', () => {
+    $('#prefButton').on('click', () => {
       $('#anchor').empty()
       app.Article.all = [];
       var checkedList = document.getElementsByClassName('source');
@@ -45,14 +59,10 @@ var app = app || {};
       }
       localStorage.setItem('PREFS', JSON.stringify(selectedList));
 
-      $('.name-list, .save-button').fadeOut(500);
+      $('.name-list, #prefButton').fadeOut(500);
       page('/home');
     });
   };
-
-
-
-
 
   module.preferenceView = preferenceView;
 })(app);

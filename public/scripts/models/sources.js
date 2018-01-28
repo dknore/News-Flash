@@ -11,7 +11,6 @@ var app = app || {};
   Source.fetchAllSources = () => {
     return $.getJSON(API_URL).then(sourceData => {
       Source.all = sourceData;
-      // console.log(Source.all);
     }).catch(error => console.error(error));
   }
 

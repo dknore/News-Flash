@@ -1,9 +1,23 @@
+.fixed-navbar {
+    background-color: #484848;
+    padding-bottom: 0;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    width: 100%;
+    box-shadow: 0 1px 0 rgba(12,13,14,0.1), 
+    0 1px 3px rgba(12,13,14,0.1), 
+    0 4px 20px rgba(12,13,14,0.035), 
+    0 1px 1px rgba(12,13,14,0.025);
+}
+
 #panel {
     display: none;
     background-color: #bfbfbf;
     border:solid 1px #c3c3c3;
     width: 100%;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 #navbar-toggle {
@@ -22,26 +36,128 @@
     border-radius: .02em;
 }
 
-.fixed-navbar {
-    background-color: #484848;
-    padding-bottom: 0;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-}
 
-.name-list {
-    width: 100%;
-    padding-left: 0;
-}
+/* Preferences page */
 
 #pref-page {
-    height: -webkit-fill-available;
-    width: 100%;
+    margin: 3em auto;
 }
 
 .source {
     margin-bottom: 0;
     width: 20%;
+}
+
+.source-author {
+    background-color: #4a4a4a;
+}
+
+
+.left-col {
+    float: left;
+    width: 50%;
+}
+
+.right-col {
+    margin-top: 8em;
+    margin-left: 50%;
+}
+
+
+
+
+@media only screen and (min-width: 600px) {
+    #pref-page {
+        width: 80%;
+    }
+
+    .left-col {
+        margin-left: 4em; 
+    }
+}
+
+
+
+
+/* The container */
+.container {
+    display: table;
+    position: relative;
+    padding-left: 2em;
+    margin-bottom: 2em;
+    cursor: pointer;
+    font-size: 1em;
+    padding-top: 0.4em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    /* position: absolute; */
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #5aabfc;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* button */
+.save-button {
+    background-color: #5aabfc;
+    color: white;
+    padding: 0.4em 2em;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    width: 100%;
+}
+
+.save-button:hover {
+    background-color: #ccc;
 }

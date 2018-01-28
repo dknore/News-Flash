@@ -6,22 +6,22 @@ page('/*', (ctx, next) => {
 });
 
 page('/', () => { 
-  // page.redirect('/home');
-  app.newsListPage.init();
-  $('.save-button').hide();
+  page.redirect('/home');
+  $('#prefButton').hide();
 });
 
 page('/home', () => { 
   app.newsListPage.init();
+  $('.feed-wrapper').show();
+  isUserLoggedIn();
 });
 
 page('/login', () => {
-  event.preventDefault();
   app.loginView.init();
+  isUserLoggedIn();
 });
 
 page('/signup', () => {
-  event.preventDefault();
   app.signUpView.init();
   $('#signUp').show();
   $('.feed-wrapper').hide();
@@ -29,8 +29,9 @@ page('/signup', () => {
 });
 
 page('/preferences', () => {
-  event.preventDefault();
+  isUserLoggedIn();
   app.preferenceView.init();
+  $('#prefButton').show();
   $('.feed-wrapper, #signUp').hide();
 });
 

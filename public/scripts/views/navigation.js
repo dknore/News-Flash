@@ -4,7 +4,6 @@ var modal = document.getElementById('login-modal');
 var loginLink = document.getElementById("login-link");
 
 $(document).ready(function() {
-    // $('#navbar-toggle, .navbar-item').on('click', function() {
     $('#navbar-toggle').on('click', function() {
         $("#panel").slideToggle();
     });
@@ -13,31 +12,27 @@ $(document).ready(function() {
     modal.style.display = "none";
 });
 
+
 // when user presses the 'Log Out' menu item
-// $('#logout-link, #pref-link').hide();
 $('#logout-link').on('click', (event) => {
-  event.preventDefault();
-  localStorage.clear();
-  $('.pref-link, #logout-link').hide();
-  $('#login-link, #signup-link').show();
+    event.preventDefault();
+    localStorage.clear();
+    $('.pref-link, #logout-link').hide();
+    $('#login-link, #signup-link').show();
+
+    $('#anchor').empty()
+    app.Article.all = [];
+    page('/home');
 });
 
+
+$('#pref-link').on('click', (event) => {
+    $('#prefButton').show();
+});
 
 loginLink.onclick = function () {
   modal.style.display = "flex";
 }
-
-// add the close functionality for each nav bar link when the user presses on any of them
-function addCloseNavBar () {
-    var navbarLinks = document.getElementsByClassName("navbar-item");
-    for (var i = 0; i < navbarLinks.length; i++) {
-        navbarLinks[i].addEventListener("click", function() {
-            $("#panel").slideToggle();
-        }, false);
-    }
-}
-addCloseNavBar();
-
 
 // check if user is logged in
 function isUserLoggedIn () {
@@ -45,7 +40,10 @@ function isUserLoggedIn () {
     let userPassword = JSON.parse(localStorage.getItem('PASSWORD-KEY'));
     if (userEmail !== null && userPassword !== null) {
         $('#login-link, #signup-link').hide();
-        $('#logout-link, #pref-link').show();
+        $('#pref-link, #logout-link').show();
+    } else {
+        $('#login-link, #signup-link').show();
+        $('#pref-link, #logout-link').hide();
     }
 }
-isUserLoggedIn();
+
