@@ -13,18 +13,17 @@
     <script id="feedView-template" type="text/x-handlebars-template">
         <div class="feed-wrapper" id="{{id}}">
             <div id="inner">
-                <div class="source-author">
-                    <a id="title" href="{{url}}" target="_blank">{{{title}}}</a></br>
+                <div class="source">{{source.name}}<br>
                 </div>
 
                 <div class="feed-image">
                     <img id="articleImage" src="{{urlToImage}}" alt="{{url}}" onclick="window.open('{{url}}')">
-                    <!-- <div class="image-description">test text on hover of image to prompt user to click for image website</div> -->
                 </div>
 
-                <label id="article-author">{{author}}{{source.name}}</label>
+                <a id="title" href="{{url}}" target="_blank">{{{title}}}</a> {{articleData.author}} </br>
                 <label id="description">{{description}}</label></br>
                 <label id="publishedOn">Published {{publishedAt}} ago</label>
+
             </div>
         </div>
     </script>
