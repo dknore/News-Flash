@@ -30,7 +30,6 @@ var app = app || {};
           <span class="checkmark"></span></label>`);
         }
       });
-      // $('.name-list').show();
     }).then(() => {
       // compare the sources to the saved prefs
       let sources = JSON.parse(localStorage.getItem('PREFS'));
