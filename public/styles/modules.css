@@ -1,45 +1,41 @@
-
 /* Sign-Up page */
 #signUp {
     background-color: white;
     border: 1px solid black;
     width: 80%;
     height: 40%;
-    margin: 22em auto;
+    margin: 15em auto;
     padding: 2em;
 }
 
-/* The Modal (background) */
+/* The Modal */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
+    display: none;
+    position: fixed;
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 100px;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%; 
+    overflow: auto;
 }
 
 #login-modal-outerArea {
-    padding-top: 100px; /* Location of the box */
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 100px; 
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
 }
 
 /* Modal Content */
 #login-modal-content {
     background-color: #fefefe;
-    margin: auto;
-    padding: 2em;
     border: 1px solid #808080;
+    margin: auto;
+    padding: 2em 3em;
     width: 80%;
 }
 
@@ -47,10 +43,10 @@
 .close {
     color: #aaaaaa;
     float: right;
-    font-size: 28px;
+    font-size: 1.8em;
     font-weight: bold;
-    margin-top: -20px;
-    margin-right: -10px;
+    margin-top: -1.2em;
+    margin-right: -.8em;
 }
 
 .close:hover, .close:focus {
@@ -61,11 +57,11 @@
 
 .form-input {
    border: 1px solid #4a4a4a;
+   margin-bottom: 1em;
    padding-left: .5em;
+   font-size: 1em;
    width: 100%;
-   height: 30px;
-   margin-right: 7em;
-   margin-bottom: 10px;
+   height: 3em;
 }
 
 h1 {
@@ -78,23 +74,20 @@ h1 {
 .feed-wrapper .feed-image {
     text-align: center;
 }
+
 .feed-wrapper img {
     cursor: pointer;
     margin: 0 auto;
-    max-height: 500px;
+    max-height: 35em;
     width: 100%;
     max-width: 100%;
 }
 
-.feed-wrapper #title {
-    margin-bottom: 0;
-    padding: .8em .5em;
-    color: #5aabfc;
-    overflow-wrap: break-word;
+.feed-wrapper {
     max-width: 100%;
 }
 
-#article-author {
+#author {
     padding: 0.5em 1.5em;
 }
 
@@ -105,26 +98,24 @@ label {
     margin: 0;
 }
 
-
 /*  Articles  */
-#title {
-    cursor: pointer;
-    display: inline-block;
-    font-size: 1.5em;
+.source {
+    background-color: #4a4a4a;
     font-weight: bold;
-    padding-top: .3em;
-    padding: 0 1.4em;
-    -webkit-box-decoration-break: clone;
+    font-size: 1.8em;
+    color: #5aabfc;
+    padding: .8em;
+    margin-bottom: 0;
 }
 
-a:link {
-    color: #ffffff;
-}
-a:hover {
-    color: #d6d6d6;
-}
-a:visited {
-    color: #5aabfc;
+#title {
+    overflow-wrap: break-word;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    padding: .5em 1.4em;
+    -webkit-box-decoration-break: clone;
 }
 
 #description {
@@ -139,6 +130,15 @@ a:visited {
     font-size: .8em;
 }
 
+a:link {
+    color: #ffffff;
+}
+a:hover {
+    color: #d6d6d6;
+}
+a:visited {
+    color: #5aabfc;
+}
 
 /* Mixed Media */
 @media only screen and (max-width: 600px) {
@@ -156,15 +156,6 @@ a:visited {
         max-width: 80%;
         margin: 0 auto;
         margin-bottom: .5em;
-    }
-
-    /* Modal Content */
-    #login-modal-content {
-        background-color: #fefefe;
-        margin: auto;
-        padding: 2em;
-        border: 1px solid #808080;
-        width: 50%;
     }
  }
  

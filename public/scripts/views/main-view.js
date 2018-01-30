@@ -40,7 +40,7 @@ var app = app || {};
       }
       // inject a comma between the author and news outlet
       if (articleData.author && articleData.source.name) {
-        articleData.source.name = `, ${articleData.source.name}`;
+        articleData.source.name = `${articleData.source.name}`;
       }
 
       if (articleData.urlToImage) {

@@ -10,7 +10,9 @@ var app = app || {};
   signUpView.init = () => {
     $('#home-link, #signup-modal, .save-button').show();
     $('#panel, #login-link, #signup-link, #pref-link').hide();
-    var loginList = localStorage.loginData;//starts as an empty array
+    
+    var loginList = localStorage.loginData;
+    
     if (loginList === undefined || loginList === null) {
       loginList = [];
     } else {
